@@ -11,26 +11,7 @@ export interface EntriesState {
 }
 
 const Entries_INITIAL_STATE: EntriesState = {
-    entries: [
-        {
-            _id: uuidv4(),
-            description: 'Pendiente: Primera línea de prueba',
-            status: 'pending',
-            createdAt: Date.now(),
-        },
-        {
-            _id: uuidv4(),
-            description: 'En-Progreso: Segunda línea de prueba',
-            status: 'in-progress',
-            createdAt: Date.now() - 1000000,
-        },
-        {
-            _id: uuidv4(),
-            description: 'Terminadas: Tercera línea de prueba',
-            status: 'finished',
-            createdAt: Date.now() - 100000,
-        },
-    ],
+    entries: [],
 }
 
 interface EntriesProviderProps {
