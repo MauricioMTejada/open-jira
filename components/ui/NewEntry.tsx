@@ -43,7 +43,8 @@ export const NewEntry = () => {
 							autoFocus
 							multiline
 							label='Nueva Entrada'
-							helperText={ inputValue.length <= 0 && touched && 'Ingrese un valor' }
+							helperText={ inputValue.length <= 0
+								&& touched && 'Ingrese un valor' }
 							error={ inputValue.length <= 0 && touched }
 							value={ inputValue }
 							onChange={ onTextFieldChanges }

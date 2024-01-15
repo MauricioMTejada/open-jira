@@ -2,7 +2,8 @@ import React, { DragEvent, FC, useContext } from "react";
 
 import { useRouter } from "next/router";
 
-import { Card, CardActionArea, CardActions, CardContent, Typography } from "@mui/material";
+import { Card, CardActionArea, CardActions, CardContent,
+	Typography, } from "@mui/material";
 
 import { Entry } from "../../interfaces";
 import { UIContext } from "../../context/ui";
@@ -44,11 +45,19 @@ export const EntryCard:FC<Props> = ({ entry }) => {
 			>
 				<CardActionArea>
 					<CardContent>
-						<Typography sx={{ whiteSpace: 'pre-line'}}> { entry.description} </Typography>
+						<Typography sx={{ whiteSpace: 'pre-line'}}>
+							{ entry.description}
+						</Typography>
 					</CardContent>
 
-					<CardActions sx={{ display: 'flex', justifyContent: 'end', paddingRight: 2}}>
-						<Typography variant="body2">{ dateFunctions.getFormatDistanceToNow(entry.createdAt) }</Typography>
+					<CardActions sx={{ display: 'flex',
+						justifyContent: 'end', paddingRight: 2}}>
+
+						<Typography variant="body2">
+							{dateFunctions.
+								getFormatDistanceToNow(entry.createdAt)}
+
+						</Typography>
 					</CardActions>
 				</CardActionArea>
 			</Card>

@@ -28,7 +28,8 @@ export const EntryPage:FC<Props> = ({entry}) => {
     const [status, setStatus] = useState<EntryStatus>(entry.status);
     const [touched, setTouched] = useState(false);
 
-    const isNotValid = useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
+    const isNotValid =
+        useMemo(() => inputValue.length <= 0 && touched, [inputValue, touched])
 
     const onInputValueChanged = (event: ChangeEvent<HTMLInputElement>) => {
 		setInputValue( event.target.value )
@@ -64,7 +65,9 @@ export const EntryPage:FC<Props> = ({entry}) => {
                         <CardHeader
                             // title={`Entrada: ${inputValue}`}
                             title={`Entrada: `}
-                            subheader={`Creada hace: ${dateFunctions.getFormatDistanceToNow(entry.createdAt)}`}
+                            subheader={`Creada hace:
+                                ${dateFunctions.
+                                getFormatDistanceToNow(entry.createdAt)}`}
                         />
 
                         <CardContent>
@@ -78,7 +81,8 @@ export const EntryPage:FC<Props> = ({entry}) => {
                                 value={inputValue}
                                 onBlur={ () => setTouched(true)}
                                 onChange={onInputValueChanged}
-                                helperText={isNotValid && 'Ingrese un valor'}
+                                helperText=
+                                    {isNotValid && 'Ingrese un valor'}
                                 error={ isNotValid}
                             />
 

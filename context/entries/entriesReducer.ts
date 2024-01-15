@@ -7,7 +7,8 @@ type EntriesActionType =
 | { type: '[Entry] Refresh-Data', payload: Entry[] }
 
 
-export const entriesReducer = ( state: EntriesState, action: EntriesActionType ): EntriesState => {
+export const entriesReducer = ( state: EntriesState,
+    action: EntriesActionType ): EntriesState => {
 
     switch (action.type) {
         case '[Entry] Add-Entry':

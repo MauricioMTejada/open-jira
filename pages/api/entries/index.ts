@@ -60,7 +60,8 @@ const postEnty = async (req: NextApiRequest, res: NextApiResponse<Data>) => {
         await db.disconnect();
         console.log(error);
 
-        return res.status(500).json({ message: 'Algo salió mal, revisar consola del servidor'});
+        return res.status(500).json(
+            { message: 'Algo salió mal, revisar consola del servidor'});
     }
 
 }

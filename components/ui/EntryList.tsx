@@ -16,11 +16,13 @@ export const EntryList:FC<Props> = ({ status }) => {
 
 	const { isDragging, endDragging } = useContext( UIContext )
 
-	const entriesByStatus = useMemo( () =>  entries.filter( entry => entry.status === status), [ entries ])
+	const entriesByStatus = useMemo(
+		() => entries.filter((entry) => entry.status === status),
+		[entries]
+	);
 
 	const allowDrop = ( event:DragEvent<HTMLDivElement> ) => {
 		event.preventDefault();
-
 	}
 
 	const onDropEntry = ( event:DragEvent<HTMLDivElement> ) => {
@@ -33,28 +35,26 @@ export const EntryList:FC<Props> = ({ status }) => {
 
 	}
 
-
-
 	return (
 		<div
-			onDrop={ onDropEntry }
-			onDragOver={ allowDrop }
-			className={ isDragging ? styles.dragging : '' }
-		>
-			<Paper sx={{ height: 'calc(100vh - 180px)', overflow: 'auto', backgroundColor: 'transparent', padding: '3px 5px', paddingBottom: '2' }}>
+			onDrop={onDropEntry}
+			onDragOver={allowDrop}
+			className={isDragging ? styles.dragging : ""}>
+			<Paper
+				sx={{
+					height: "calc(100vh - 180px)",
+					overflow: "auto",
+					backgroundColor: "transparent",
+					padding: "3px 5px",
+					paddingBottom: "2",
+				}}>
 
-
-				<List sx={{ opacity: isDragging ? 0.2 : 1, transition: 'all 0.3s'}} >
-					{
-						entriesByStatus.map( entry => (
-							<EntryCard key={entry._id} entry={ entry }/>
-
-						))
-					}
-
+				<List sx={{ opacity: isDragging ? 0.2 : 1, transition: "all 0.3s" }}>
+					{entriesByStatus.map((entry) => (
+						<EntryCard key={entry._id} entry={entry} />
+					))}
 				</List>
-
 			</Paper>
 		</div>
-	)
+	);
 }

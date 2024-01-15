@@ -28,7 +28,8 @@ export const Sidebar = () => {
                     menuItems.map( (text, index) => (
                         <ListItem button key={ text }>
                             <ListItemIcon>
-                                { index % 2 ? <InboxOutlinedIcon/> : <MailOutlineOutlinedIcon />}
+                                { index % 2 ? <InboxOutlinedIcon/>
+                                    : <MailOutlineOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={ text }/>
                         </ListItem>
@@ -43,7 +44,8 @@ export const Sidebar = () => {
                     menuItems.map( (text, index) => (
                         <ListItem button key={ text }>
                             <ListItemIcon>
-                                { index % 2 ? <InboxOutlinedIcon/> : <MailOutlineOutlinedIcon />}
+                                { index % 2 ? <InboxOutlinedIcon/>
+                                    : <MailOutlineOutlinedIcon />}
                             </ListItemIcon>
                             <ListItemText primary={ text }/>
                         </ListItem>

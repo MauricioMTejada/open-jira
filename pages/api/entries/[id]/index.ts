@@ -7,7 +7,8 @@ type Data =
 	| { message: string }
 	| IEntry;
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(req: NextApiRequest,
+	res: NextApiResponse<Data>) {
 
     const { id } = req.query;
 
@@ -41,13 +42,15 @@ const getEntry = async ( req:NextApiRequest, res: NextApiResponse ) => {
 	await db.disconnect();
 
 	if (!entryInDB) {
-		return res.status(400).json({ message: 'No hay entrada con ese ID: ' + id })
+		return res.status(400).json(
+			{ message: 'No hay entrada con ese ID: ' + id })
 	}
 
 	return res.status(200).json(entryInDB)
 }
 
-const updateEntry = async( req:NextApiRequest, res: NextApiResponse<Data> ) => {
+const updateEntry = async( req:NextApiRequest,
+	res: NextApiResponse<Data> ) => {
 
 	const { id } = req.query;
 
@@ -57,7 +60,8 @@ const updateEntry = async( req:NextApiRequest, res: NextApiResponse<Data> ) => {
 
 	if (!entryToUpdate) {
 		await db.disconnect();
-		return res.status(400).json({ message: 'No hay entrada con ese ID: ' + id })
+		return res.status(400).json(
+			{ message: 'No hay entrada con ese ID: ' + id })
 	}
 
 	const {
@@ -66,7 +70,8 @@ const updateEntry = async( req:NextApiRequest, res: NextApiResponse<Data> ) => {
 	} = req.body;
 
 	try {
-		const updateEntry = await Entry.findByIdAndUpdate( id, {description, status}, {runValidators: true, new: true});
+		const updateEntry = await Entry.findByIdAndUpdate(
+			id, {description, status}, {runValidators: true, new: true});
 
 		// entryToUpdate.description = description;
 		// entryToUpdate.status = status;
