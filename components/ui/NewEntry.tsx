@@ -55,7 +55,7 @@ export const NewEntry = () => {
 						<Box display='flex' justifyContent='space-between' >
 							<Button
 								variant='text'
-								onClick={() => setIsAddingEntry( false )}
+								onClick={() => {setIsAddingEntry( false ), setTouched( false )}}
 							>
 								Cancelar
 							</Button>
